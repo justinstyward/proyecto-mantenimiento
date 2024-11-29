@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item></ion-item>
+    <ion-item *ngFor="let client of clients">
+      <ion-label
+        ><strong>Codigo:</strong> {{client.idCliente}}
+        <br />
+        <strong>Razon Social:</strong> {{client.razonSocial}}
+        <br />
+        <strong>Nit:</strong> {{client.nit}}
+        <br />
+        <strong>Teléfono:</strong> {{client.telefono}}
+        <br />
+        <strong>Dirección:</strong> {{client.direccion}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button routerLink="/client-create" routerDirection="forward">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="getClients()" routerDirection="forward">
+      <ion-icon name="refresh-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
